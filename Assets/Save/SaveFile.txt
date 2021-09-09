@@ -1,0 +1,43 @@
+﻿{
+    "userName": "민영",
+    "energy": 70,
+    "ePc": 1,
+    "soldierList": [
+        {
+            "soldierName": "초급마녀",
+            "amount": 1,
+            "ePs": 1,
+            "price": 500
+        },
+        {
+            "soldierName": "중급마녀",
+            "amount": 2,
+            "ePs": 3,
+            "price": 1000
+        },
+        {
+            "soldierName": "고급마녀",
+            "amount": 3,
+            "ePs": 20,
+            "price": 3000
+        },
+        {
+            "soldierName": "대마녀",
+            "amount": 4,
+            "ePs": 20,
+            "price": 3000
+        },
+        {
+            "soldierName": "초급주술사",
+            "amount": 5,
+            "ePs": 50,
+            "price": 5000
+        },
+        {
+            "soldierName": "중급주술사",
+            "amount": 6,
+            "ePs": 100,
+            "price": 10000
+        }
+    ]
+}
