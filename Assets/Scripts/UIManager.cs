@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     private Text energyText = null;
 
     [SerializeField]
+    private Text totalEpsText = null;
+
+    [SerializeField]
     private Animator beakerAnimator;
 
     [SerializeField]
@@ -44,5 +47,7 @@ public class UIManager : MonoBehaviour
     public void UpdateEnergyPanel()
     {
         energyText.text = string.Format("{0} 에너지", GameManager.Instance.CurrentUser.energy);
+        totalEpsText.text = string.Format("{0}원/초 ", GameManager.Instance.TotalEps);
+        Debug.Log(GameManager.Instance.TotalEps);
     }
 }

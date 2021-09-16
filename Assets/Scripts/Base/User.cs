@@ -7,7 +7,11 @@ public class User
 {
     public string userName;
     public long energy;
-    public long ePc = 1; //클릭당 에너지
+    public long ePc = 100; //클릭당 에너지
+
+
+
     public List<Soldier> soldierList = new List<Soldier>();
+    
 
 }

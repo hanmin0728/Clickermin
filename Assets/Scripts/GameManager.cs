@@ -6,6 +6,17 @@ public class GameManager : MonoSingleton<GameManager>
     private string SAVE_PATH = "";
     private string SAVE_FILENAME = "/SaveFile.txt";
 
+    public float totalEps;
+
+    private UIManager uiManager = null;
+    public UIManager UI
+    {
+        get
+        {
+            return uiManager;
+        }
+    }
+
     [SerializeField]
     private User user = null;
     public User CurrentUser
@@ -24,7 +35,35 @@ public class GameManager : MonoSingleton<GameManager>
             Directory.CreateDirectory(SAVE_PATH);
         }
         InvokeRepeating("SaveToJson", 1f, 60f);
+        InvokeRepeating("EarnEnergyPerSecond",0f, 1f);
+        InvokeRepeating("EnergyPerClick", 0f, 1f);
         LoadFromJson();
+        uiManager = GetComponent<UIManager>();
+    }
+    public float TotalEps
+    {
+        get
+        {
+            totalEps = 0;
+            foreach (Soldier soldier in CurrentUser.soldierList)
+            {
+                totalEps += soldier.ePs * soldier.amount;
+            }
+            Debug.Log(totalEps);
+            return totalEps;
+        }
+    }
+    private void EnergyPerClick()
+    {
+        uiManager.UpdateEnergyPanel();
+    }
+    private void EarnEnergyPerSecond()
+    {
+        foreach (Soldier solider in user.soldierList)
+        {
+            user.energy += solider.ePs * solider.amount;
+        }
+        UI.UpdateEnergyPanel();
     }
 
     private void LoadFromJson()
