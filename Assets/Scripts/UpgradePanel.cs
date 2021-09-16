@@ -13,18 +13,24 @@ public class UpgradePanel : MonoBehaviour
     private Text amountText = null;
     [SerializeField]
     private Button purchaseButton = null;
+    [SerializeField]
+    private Image soliderImage = null; // 유니티 ui 액자같은느낌
+    [SerializeField]
+    private Sprite[] soliderSprite; // 그림 
 
     private Soldier soldier = null;
     public void SetValue(Soldier soldier)
     {
         this.soldier = soldier;
         UpdateUI();
+        
     }
     public void UpdateUI()
     {
         soldierNameText.text = soldier.soldierName;
         priceText.text = string.Format("{0} 에너지", soldier.price);
         amountText.text = string.Format("{0}", soldier.amount);
+        soliderImage.sprite = soliderSprite[soldier.soldierNumber];
         
     }
     public void OnClickPurchase()

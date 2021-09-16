@@ -29,7 +29,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        SAVE_PATH = Application.dataPath + "/Save";
+        SAVE_PATH = Application.dataPath + "/Save"; // 안드로이드 빌드시 Application.persistentDataPath
         if (Directory.Exists(SAVE_PATH) == false)
         {
             Directory.CreateDirectory(SAVE_PATH);

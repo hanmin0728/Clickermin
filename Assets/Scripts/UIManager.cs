@@ -14,10 +14,16 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Animator beakerAnimator;
 
+
     [SerializeField]
     private GameObject upgradePanelTemplate = null;
 
     private List<UpgradePanel> upgradePanels = new List<UpgradePanel>();
+
+    [SerializeField]
+    private EneryText eneryTextTemplete = null;
+    [SerializeField]
+    private Transform pool;
     private void Start()
     {
         UpdateEnergyPanel();
@@ -42,6 +48,16 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.CurrentUser.energy += GameManager.Instance.CurrentUser.ePc;
         UpdateEnergyPanel();
         beakerAnimator.Play("click");
+        EneryText newText = null;
+        if (pool.childCount > 0)
+        {
+            newText = pool.GetChild(0).GetComponent<EneryText>();
+        }
+        else
+        {
+            newText = Instantiate(eneryTextTemplete, eneryTextTemplete.transform.parent);
+        }
+        newText.Show(Input.mousePosition);
     }
 
     public void UpdateEnergyPanel()
