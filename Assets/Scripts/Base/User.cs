@@ -10,7 +10,6 @@ public class User
     public long ePc = 100; //클릭당 에너지
 
 
-
     public List<Soldier> soldierList = new List<Soldier>();
     
 

@@ -7,7 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
     private string SAVE_FILENAME = "/SaveFile.txt";
 
     public float totalEps;
-
+        
     private UIManager uiManager = null;
     public UIManager UI
     {

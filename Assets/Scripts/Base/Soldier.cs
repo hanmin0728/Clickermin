@@ -7,7 +7,7 @@ public class Soldier
 {
     public int soldierNumber;
     public string soldierName;
-    public int amount;
+    public int amount;  
     public long ePs; // 초당 얼마나 올려주는지
     public long price;
  
